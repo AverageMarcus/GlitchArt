@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      main {
+        display: flex;
+      }
+
+      main > div {
+        margin: 0 3px;
+      }
+    </style>
+  </head>
+  <body>
+
+      <main>
+        <div>
+          <h2>Pixel Static</h2>
+          <canvas class="pixelStatic"></canvas>
+        </div>
+        <div>
+          <h2>Monochrome Pixel Static</h2>
+          <canvas class="monochromePixelStatic"></canvas>
+        </div>
+        <div>
+          <h2>Row Swapping</h2>
+          <canvas class="rowSwapping"></canvas>
+        </div>
+        <div>
+          <h2>Distorted Rows</h2>
+          <canvas class="distortedRows"></canvas>
+        </div>
+        <div>
+          <h2>VHS Tracking</h2>
+          <canvas class="vhsTracking"></canvas>
+        </div>
+
+      </main>
+
+      <script src="scripts/main.js"></script>
+
+      <script>
+        glitches.pixelStaticGlitch('.pixelStatic', 'https://cors-proxy.marcusnoble.co.uk/https://marcusnoble.co.uk/images/marcus.jpg');
+        glitches.monochromePixelStaticGlitch('.monochromePixelStatic', 'https://cors-proxy.marcusnoble.co.uk/https://marcusnoble.co.uk/images/marcus.jpg');
+        glitches.rowSwappingGlitch('.rowSwapping', 'https://cors-proxy.marcusnoble.co.uk/https://marcusnoble.co.uk/images/marcus.jpg');
+        glitches.distortedRowsGlitch('.distortedRows', 'https://cors-proxy.marcusnoble.co.uk/https://marcusnoble.co.uk/images/marcus.jpg');
+        glitches.vhsTrackingGlitch('.vhsTracking', 'https://cors-proxy.marcusnoble.co.uk/https://marcusnoble.co.uk/images/marcus.jpg');
+      </script>
+
+  </body>
+</html>
