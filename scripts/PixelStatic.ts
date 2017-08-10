@@ -2,11 +2,11 @@ import {Canvas} from './lib/Canvas';
 import {GlitchPicture} from './lib/GlitchPicture';
 import {flatternArrays} from './lib/Utils';
 
-export const pixelStaticGlitch = async (canvasSelector: string, imageURL: string) => {
+export const pixelStaticGlitch = async function(canvasSelector: string, imageURL: string) {
   const canvas = new Canvas(canvasSelector);
   const picture = new GlitchPicture(await canvas.getDataUri(imageURL));
 
-  setInterval(() => {
+  this.update = () => {
     const pixelArray = picture.get1DPixelArray();
 
     const from = [];
@@ -22,15 +22,16 @@ export const pixelStaticGlitch = async (canvasSelector: string, imageURL: string
 
     const imageData = picture.createImageData(flatternArrays(pixelArray));
     canvas.update(imageData);
-  }, 300);
+  };
 
+  this.update();
 };
 
-export const monochromePixelStaticGlitch = async (canvasSelector: string, imageURL: string) => {
+export const monochromePixelStaticGlitch = async function(canvasSelector: string, imageURL: string) {
   const canvas = new Canvas(canvasSelector);
   const picture = new GlitchPicture(await canvas.getDataUri(imageURL));
 
-  setInterval(() => {
+  this.update = () => {
     const pixelArray = picture.get1DPixelArray();
 
     const from = [];
@@ -46,6 +47,7 @@ export const monochromePixelStaticGlitch = async (canvasSelector: string, imageU
 
     const imageData = picture.createImageData(flatternArrays(pixelArray));
     canvas.update(imageData);
-  }, 300);
+  };
 
+  this.update();
 };

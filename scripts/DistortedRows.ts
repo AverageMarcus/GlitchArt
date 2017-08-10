@@ -2,11 +2,11 @@ import {Canvas} from './lib/Canvas';
 import {GlitchPicture} from './lib/GlitchPicture';
 import {randomBetween, flatternArrays} from './lib/Utils';
 
-export const distortedRowsGlitch = async (canvasSelector: string, imageURL: string) => {
+export const distortedRowsGlitch = async function(canvasSelector: string, imageURL: string) {
   const canvas = new Canvas(canvasSelector);
   const picture = new GlitchPicture(await canvas.getDataUri(imageURL));
 
-  setInterval(() => {
+  this.update = () => {
     const rows = picture.get3DArray();
 
     const distortHeight = randomBetween(10, 50);
@@ -45,6 +45,7 @@ export const distortedRowsGlitch = async (canvasSelector: string, imageURL: stri
 
     const imageData = picture.createImageData(flatternArrays(rows));
     canvas.update(imageData);
-  }, 300);
+  };
 
+  this.update();
 };

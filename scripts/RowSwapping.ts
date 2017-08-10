@@ -2,11 +2,11 @@ import {Canvas} from './lib/Canvas';
 import {GlitchPicture} from './lib/GlitchPicture';
 import {randomBetween, flatternArrays} from './lib/Utils';
 
-export const rowSwappingGlitch = async (canvasSelector: string, imageURL: string) => {
+export const rowSwappingGlitch = async function(canvasSelector: string, imageURL: string) {
   const canvas = new Canvas(canvasSelector);
   const picture = new GlitchPicture(await canvas.getDataUri(imageURL));
 
-  setInterval(() => {
+  this.update = () => {
     const rows = picture.get3DArray();
 
     // Shuffle rows
@@ -19,6 +19,7 @@ export const rowSwappingGlitch = async (canvasSelector: string, imageURL: string
 
     const imageData = picture.createImageData(flatternArrays(rows));
     canvas.update(imageData);
-  }, 300);
+  };
 
+  this.update();
 };
